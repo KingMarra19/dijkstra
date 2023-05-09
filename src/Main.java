@@ -18,8 +18,6 @@ public class Main {
         dijkstra.add(n4);
         dijkstra.add(n5);
         dijkstra.algoritmo(n1,n5);
-        System.out.println(n5.getPath());
-
     }
 
 

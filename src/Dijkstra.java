@@ -20,15 +20,16 @@ public class Dijkstra {
         }
         inizio.setWeight(0);                               // setto la distanza del primo nodo a 0
         PriorityQueue<Node> Novisited= new PriorityQueue<>((a, b) -> a.getWeight() - b.getWeight());
-        Novisited.addAll(Tnode);// aggiungo ai nodi non visitati tutti i nodi
+        Novisited.add(inizio);// aggiungo ai nodi non visitati tutti i nodi
         Node current=null;
         while (!Novisited.isEmpty() && arrivo!=current){                      // continuo finche non è vuoto
             current=Novisited.remove();               // tolgo il nodo con la distanza minore per confrontarlo
             for (Node collegato:current.getLinks().keySet()
                  ) {
                 if(current.weightTo(collegato)< collegato.getWeight()){   // controllo se facendo questa strada la dimensione diminuisce
-                    collegato.setWeight(current.weightTo(collegato));    // se si cambio i dati sulla distanza
-                    collegato.setPrev(current);                          // dico ch il nodo corrente sarà il prossimo precendente
+                    collegato.setWeight(current.weightTo(collegato));// se si cambio i dati sulla distanza
+                    collegato.setPrev(current);// dico ch il nodo corrente sarà il prossimo precendente
+                    Novisited.add(collegato);
                 }
             }
         }

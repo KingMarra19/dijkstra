@@ -20,7 +20,7 @@ public class Dijkstra {
         }
         inizio.setWeight(0);                               // setto la distanza del primo nodo a 0
         PriorityQueue<Node> Novisited= new PriorityQueue<>((a, b) -> a.getWeight() - b.getWeight());
-        Novisited.add(inizio);// aggiungo ai nodi non visitati tutti i nodi
+        Novisited.add(inizio);// aggiungo il primo nodo
         Node current=null;
         while (!Novisited.isEmpty() && arrivo!=current){                      // continuo finche non è vuoto
             current=Novisited.remove();               // tolgo il nodo con la distanza minore per confrontarlo
